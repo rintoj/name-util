@@ -2,68 +2,161 @@
 var expect = require('chai').expect;
 var nameUtil = require('../dist/index');
 
+
 describe('util-name', function() {
 
-    it('toDashedName to be defined', function() {
-        expect(nameUtil.toDashedName).to.be.not.defined;
+    describe('toDashedName', function() {
+
+        it('should convert "happyBirthday-to-You" to "happy-birthday-to-you"', function() {
+            expect(nameUtil.toDashedName('happyBirthday-to-You')).to.be.equal('happy-birthday-to-you');
+        });
+
+        it('should convert "HappyBirthday-to-You----" to "happy-birthday-to-you"', function() {
+            expect(nameUtil.toDashedName('HappyBirthday-to-You----')).to.be.equal('happy-birthday-to-you');
+        });
+
+        it('should convert "HappyBirthday_to-You----" to "happy-birthday-to-you"', function() {
+            expect(nameUtil.toDashedName('HappyBirthday_to-You----')).to.be.equal('happy-birthday-to-you');
+        });
+
+        it('should convert "HappyBirthday_to-You -" to "happy-birthday-to-you"', function() {
+            expect(nameUtil.toDashedName('HappyBirthday_to-You -')).to.be.equal('happy-birthday-to-you');
+        });
+
+        it('should convert "HappyBirthday_to-You_" to "happy-birthday-to-you"', function() {
+            expect(nameUtil.toDashedName('HappyBirthday_to-You_')).to.be.equal('happy-birthday-to-you');
+        });
+
+        it('should convert "HappyBirthdayToYou " to "happy-birthday-to-you"', function() {
+            expect(nameUtil.toDashedName('HappyBirthdayToYou ')).to.be.equal('happy-birthday-to-you');
+        });
+
+        it('should convert "happy Birthday   to You " to "happy-birthday-to-you"', function() {
+            expect(nameUtil.toDashedName('happy Birthday   to You ')).to.be.equal('happy-birthday-to-you');
+        });
+
+        it('should convert "  happy birthday to you   " to "happy-birthday-to-you"', function() {
+            expect(nameUtil.toDashedName('  happy birthday to you   ')).to.be.equal('happy-birthday-to-you');
+        });
+
+        it('should convert "HappyBirthdayToYou" to "happy-birthday-to-you"', function() {
+            expect(nameUtil.toDashedName('HappyBirthdayToYou')).to.be.equal('happy-birthday-to-you');
+        });
+
+        it('should convert "$HappyBirthdayToYou" to "happy-birthday-to-you"', function() {
+            expect(nameUtil.toDashedName('$HappyBirthdayToYou')).to.be.equal('$-happy-birthday-to-you');
+        });
     });
 
-    it('toDashedName should convert any name to dashed name', function() {
-        expect(nameUtil.toDashedName('happyBirthday-to-You')).to.be.equal('happy-birthday-to-you');
-        expect(nameUtil.toDashedName('HappyBirthday-to-You----')).to.be.equal('happy-birthday-to-you');
-        expect(nameUtil.toDashedName('HappyBirthday_to-You----')).to.be.equal('happy-birthday-to-you');
-        expect(nameUtil.toDashedName('HappyBirthday_to-You -')).to.be.equal('happy-birthday-to-you');
-        expect(nameUtil.toDashedName('HappyBirthday_to-You_')).to.be.equal('happy-birthday-to-you');
-        expect(nameUtil.toDashedName('HappyBirthdayToYou ')).to.be.equal('happy-birthday-to-you');
-        expect(nameUtil.toDashedName('happy Birthday   to You ')).to.be.equal('happy-birthday-to-you');
-        expect(nameUtil.toDashedName('  happy birthday to you   ')).to.be.equal('happy-birthday-to-you');
-        expect(nameUtil.toDashedName('HappyBirthdayToYou')).to.be.equal('happy-birthday-to-you');
-        expect(nameUtil.toDashedName('$HappyBirthdayToYou')).to.be.equal('$-happy-birthday-to-you');
+    describe('toCamelCase', function() {
+
+        it('should convert "happyBirthday-to-You" to "happyBirthdayToYou"', function() {
+            expect(nameUtil.toCamelCase('happyBirthday-to-You')).to.be.equal('happyBirthdayToYou');
+        });
+
+        it('should convert "HappyBirthday-to-You----" to "happyBirthdayToYou"', function() {
+            expect(nameUtil.toCamelCase('HappyBirthday-to-You----')).to.be.equal('happyBirthdayToYou');
+        });
+
+        it('should convert "HappyBirthday_to-You----" to "happyBirthdayToYou"', function() {
+            expect(nameUtil.toCamelCase('HappyBirthday_to-You----')).to.be.equal('happyBirthdayToYou');
+        });
+
+        it('should convert "HappyBirthday_to-You -" to "happyBirthdayToYou"', function() {
+            expect(nameUtil.toCamelCase('HappyBirthday_to-You -')).to.be.equal('happyBirthdayToYou');
+        });
+
+        it('should convert "HappyBirthday_to-You_" to "happyBirthdayToYou"', function() {
+            expect(nameUtil.toCamelCase('HappyBirthday_to-You_')).to.be.equal('happyBirthdayToYou');
+        });
+
+        it('should convert "HappyBirthdayToYou " to "happyBirthdayToYou"', function() {
+            expect(nameUtil.toCamelCase('HappyBirthdayToYou ')).to.be.equal('happyBirthdayToYou');
+        });
+
+        it('should convert "happy Birthday   to You " to "happyBirthdayToYou"', function() {
+            expect(nameUtil.toCamelCase('happy Birthday   to You ')).to.be.equal('happyBirthdayToYou');
+        });
+
+        it('should convert "  happy birthday to you   " to "happyBirthdayToYou"', function() {
+            expect(nameUtil.toCamelCase('  happy birthday to you   ')).to.be.equal('happyBirthdayToYou');
+        });
+
+        it('should convert "$happyBirthdayToYou" to "happyBirthdayToYou"', function() {
+            expect(nameUtil.toCamelCase('$happyBirthdayToYou')).to.be.equal('$happyBirthdayToYou');
+        });
+
     });
 
-    it('toCamelCase to be defined', function() {
-        expect(nameUtil.toCamelCase).to.be.not.defined;
+    describe('toClassName', function() {
+
+        it('should convert "happyBirthday-to-You" to "HappyBirthdayToYou"', function() {
+            expect(nameUtil.toClassName('happyBirthday-to-You')).to.be.equal('HappyBirthdayToYou');
+        });
+
+        it('should convert "HappyBirthday-to-You----" to "HappyBirthdayToYou"', function() {
+            expect(nameUtil.toClassName('HappyBirthday-to-You----')).to.be.equal('HappyBirthdayToYou');
+        });
+
+        it('should convert "HappyBirthday_to-You----" to "HappyBirthdayToYou"', function() {
+            expect(nameUtil.toClassName('HappyBirthday_to-You----')).to.be.equal('HappyBirthdayToYou');
+        });
+
+        it('should convert "HappyBirthday_to-You -" to "HappyBirthdayToYou"', function() {
+            expect(nameUtil.toClassName('HappyBirthday_to-You -')).to.be.equal('HappyBirthdayToYou');
+        });
+
+        it('should convert "_HappyBirthday_to-You_" to "HappyBirthdayToYou"', function() {
+            expect(nameUtil.toClassName('_HappyBirthday_to-You_')).to.be.equal('HappyBirthdayToYou');
+        });
+
+        it('should convert "HappyBirthdayToYou " to "HappyBirthdayToYou"', function() {
+            expect(nameUtil.toClassName('HappyBirthdayToYou ')).to.be.equal('HappyBirthdayToYou');
+        });
+
+        it('should convert "happy Birthday   to You " to "HappyBirthdayToYou"', function() {
+            expect(nameUtil.toClassName('happy Birthday   to You ')).to.be.equal('HappyBirthdayToYou');
+        });
+
+        it('should convert "  happy birthday to you   " to "HappyBirthdayToYou"', function() {
+            expect(nameUtil.toClassName('  happy birthday to you   ')).to.be.equal('HappyBirthdayToYou');
+        });
+
+        it('should convert "HappyBirthdayToYo" to "HappyBirthdayToYou"', function() {
+            expect(nameUtil.toClassName('HappyBirthdayToYou')).to.be.equal('HappyBirthdayToYou')
+        });
+
+
+        it('should convert "HappyBirthdayToYou" to "HappyBirthdayToYou"', function() {
+            expect(nameUtil.toClassName('HappyBirthdayToYou')).to.be.equal('HappyBirthdayToYou');
+        });
+
+        it('should convert any name to class name', function() {
+            expect(nameUtil.toClassName('$happyBirthdayToYou')).to.be.equal('$happyBirthdayToYou');
+        });
     });
 
-    it('toCamelCase should convert any name to camel-case name', function() {
-        expect(nameUtil.toCamelCase('happyBirthday-to-You')).to.be.equal('happyBirthdayToYou');
-        expect(nameUtil.toCamelCase('HappyBirthday-to-You----')).to.be.equal('happyBirthdayToYou');
-        expect(nameUtil.toCamelCase('HappyBirthday_to-You----')).to.be.equal('happyBirthdayToYou');
-        expect(nameUtil.toCamelCase('HappyBirthday_to-You -')).to.be.equal('happyBirthdayToYou');
-        expect(nameUtil.toCamelCase('HappyBirthday_to-You_')).to.be.equal('happyBirthdayToYou');
-        expect(nameUtil.toCamelCase('HappyBirthdayToYou ')).to.be.equal('happyBirthdayToYou');
-        expect(nameUtil.toCamelCase('happy Birthday   to You ')).to.be.equal('happyBirthdayToYou');
-        expect(nameUtil.toCamelCase('  happy birthday to you   ')).to.be.equal('happyBirthdayToYou');
-        expect(nameUtil.toCamelCase('$happyBirthdayToYou')).to.be.equal('$happyBirthdayToYou');
-    });
+    describe('capitalize', function() {
 
-    it('toClassName to be defined', function() {
-        expect(nameUtil.toClassName).to.be.not.defined;
-    });
+        it('should convert "happyBirthday-to-You" to "HappyBirthday-to-You"', function() {
+            expect(nameUtil.capitalize('happyBirthday-to-You')).to.be.equal('HappyBirthday-to-You');
+        });
 
-    it('toClassName should convert any name to class name', function() {
-        expect(nameUtil.toClassName('happyBirthday-to-You')).to.be.equal('HappyBirthdayToYou');
-        expect(nameUtil.toClassName('HappyBirthday-to-You----')).to.be.equal('HappyBirthdayToYou');
-        expect(nameUtil.toClassName('HappyBirthday_to-You----')).to.be.equal('HappyBirthdayToYou');
-        expect(nameUtil.toClassName('HappyBirthday_to-You -')).to.be.equal('HappyBirthdayToYou');
-        expect(nameUtil.toClassName('_HappyBirthday_to-You_')).to.be.equal('HappyBirthdayToYou');
-        expect(nameUtil.toClassName('HappyBirthdayToYou ')).to.be.equal('HappyBirthdayToYou');
-        expect(nameUtil.toClassName('happy Birthday   to You ')).to.be.equal('HappyBirthdayToYou');
-        expect(nameUtil.toClassName('  happy birthday to you   ')).to.be.equal('HappyBirthdayToYou');
-        expect(nameUtil.toClassName('HappyBirthdayToYou')).to.be.equal('HappyBirthdayToYou')
-        expect(nameUtil.toClassName('HappyBirthdayToYou')).to.be.equal('HappyBirthdayToYou');
-        expect(nameUtil.toClassName('$happyBirthdayToYou')).to.be.equal('$happyBirthdayToYou');
-    });
+        it('should convert "  happyBirthday-to-You" to "HappyBirthday-to-You"', function() {
+            expect(nameUtil.capitalize('  happyBirthday-to-You')).to.be.equal('HappyBirthday-to-You');
+        });
 
-    it('capitalize to be defined', function() {
-        expect(nameUtil.capitalize).to.be.not.defined;
-    });
+        it('should convert "HappyBirthday-to-You" to "HappyBirthday-to-You"', function() {
+            expect(nameUtil.capitalize('HappyBirthday-to-You----')).to.be.equal('HappyBirthday-to-You----');
+        });
 
-    it('capitalize should convert any name to capitalized name', function() {
-        expect(nameUtil.capitalize('happyBirthday-to-You')).to.be.equal('HappyBirthday-to-You');
-        expect(nameUtil.capitalize('HappyBirthday-to-You----')).to.be.equal('HappyBirthday-to-You----');
-        expect(nameUtil.capitalize('HappyBirthdayToYou')).to.be.equal('HappyBirthdayToYou');
-        expect(nameUtil.capitalize('$happyBirthdayToYou')).to.be.equal('$happyBirthdayToYou');
-    });
+        it('should convert "HappyBirthdayToYou" to "HappyBirthdayToYou"', function() {
+            expect(nameUtil.capitalize('HappyBirthdayToYou')).to.be.equal('HappyBirthdayToYou');
+        });
 
+        it('should convert "$happyBirthdayToYou" to "$happyBirthdayToYou"', function() {
+            expect(nameUtil.capitalize('$happyBirthdayToYou')).to.be.equal('$happyBirthdayToYou');
+        });
+
+    });
 });
