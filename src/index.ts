@@ -22,7 +22,8 @@ export function toCamelCase(key: string): string {
 };
 
 export function toClassName(key: string): string {
-    return capitalize(toCamelCase(key));
+    return capitalize(toCamelCase(key)
+        .replace(/[_-\s]+/g, ''));
 }
 
 export function capitalize(key: string): string {

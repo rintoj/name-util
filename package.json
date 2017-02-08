@@ -1,41 +1,42 @@
 {
-    "name": "name-util",
-    "version": "1.0.0",
-    "description": "A utility script to convert a string into camel case, dashed name, class name or to capitalized name",
-    "main": "dist/index.js",
-    "scripts": {
-        "tsc": "node_modules/typescript/bin/tsc",
-        "build": "npm run clean && npm run tsc --",
-        "tslint": "tslint",
-        "lint": "tslint src/**/*.ts",
-        "watch": "npm run tsc -- -w",
-        "start": "npm run watch",
-        "clean": "rimraf dist",
-        "test": "mocha test",
-        "test:watch": "npm run test -- -w",
-        "develop": "concurrently 'npm run watch' 'npm run test:watch'"
-    },
-    "repository": {
-        "type": "git",
-        "url": "git+https://github.com/rintoj/name-util.git"
-    },
-    "devDependencies": {
-        "chai": "^3.5.0",
-        "concurrently": "^3.1.0",
-        "mocha": "^3.1.2",
-        "rimraf": "^2.5.4",
-        "tslint": "3.15.1",
-        "typescript": "2.0.6"
-    },
-    "keywords": [
-        "Name",
-        "Utility",
-        "TypeScript"
-    ],
-    "author": "Rinto Jose",
-    "license": "MIT",
-    "bugs": {
-        "url": "https://github.com/rintoj/name-util/issues"
-    },
-    "homepage": "https://github.com/rintoj/name-util#readme"
+  "name": "name-util",
+  "version": "1.0.0",
+  "description": "A utility script to convert a string into camel case, dashed name, class name or to capitalized name",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "scripts": {
+    "tsc": "node_modules/typescript/bin/tsc",
+    "build": "npm run clean && npm run tsc --",
+    "tslint": "tslint",
+    "lint": "tslint src/**/*.ts",
+    "watch": "npm run tsc -- -w",
+    "start": "npm run watch",
+    "clean": "rimraf dist",
+    "test": "mocha test",
+    "test:watch": "npm run test -- -w",
+    "develop": "concurrently 'npm run watch' 'npm run test:watch'"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/rintoj/name-util.git"
+  },
+  "devDependencies": {
+    "chai": "^3.5.0",
+    "concurrently": "^3.1.0",
+    "mocha": "^3.1.2",
+    "rimraf": "^2.5.4",
+    "tslint": "3.15.1",
+    "typescript": "2.0.6"
+  },
+  "keywords": [
+    "Name",
+    "Utility",
+    "TypeScript"
+  ],
+  "author": "Rinto Jose",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/rintoj/name-util/issues"
+  },
+  "homepage": "https://github.com/rintoj/name-util#readme"
 }

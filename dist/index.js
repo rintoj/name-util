@@ -24,7 +24,8 @@ function toCamelCase(key) {
 exports.toCamelCase = toCamelCase;
 ;
 function toClassName(key) {
-    return capitalize(toCamelCase(key));
+    return capitalize(toCamelCase(key)
+        .replace(/[_-\s]+/g, ''));
 }
 exports.toClassName = toClassName;
 function capitalize(key) {

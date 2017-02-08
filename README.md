@@ -38,6 +38,11 @@ nameUtil.toClassName('background-color'); // returns 'BackgroundColor'
 nameUtil.capitalize('background-color'); // returns 'Background-color'
 ```
 
+## Test
+```
+npm test
+```
+
 ## Contributing
 
 Contributions are very welcome! Just send a pull request. Feel free to contact me or checkout my [GitHub](https://github.com/rintoj) page.

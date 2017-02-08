@@ -126,13 +126,12 @@ describe('util-name', function() {
             expect(nameUtil.toClassName('HappyBirthdayToYou')).to.be.equal('HappyBirthdayToYou')
         });
 
-
         it('should convert "HappyBirthdayToYou" to "HappyBirthdayToYou"', function() {
             expect(nameUtil.toClassName('HappyBirthdayToYou')).to.be.equal('HappyBirthdayToYou');
         });
 
-        it('should convert any name to class name', function() {
-            expect(nameUtil.toClassName('$happyBirthdayToYou')).to.be.equal('$happyBirthdayToYou');
+        it('should convert "HappyBirthdayToYou" to "HappyBirthdayToYou"', function() {
+            expect(nameUtil.toClassName('page 1')).to.be.equal('Page1');
         });
     });
 
