@@ -43,8 +43,51 @@ describe('util-name', function() {
             expect(nameUtil.toDashedName('HappyBirthdayToYou')).to.be.equal('happy-birthday-to-you');
         });
 
-        it('should convert "$HappyBirthdayToYou" to "happy-birthday-to-you"', function() {
+        it('should convert "$HappyBirthdayToYou" to "$-happy-birthday-to-you"', function() {
             expect(nameUtil.toDashedName('$HappyBirthdayToYou')).to.be.equal('$-happy-birthday-to-you');
+        });
+    });
+
+    describe('toUnderscoredName', function() {
+
+        it('should convert "happyBirthday-to-You" to "happy_birthday_to_you"', function() {
+            expect(nameUtil.toUnderscoredName('happyBirthday-to-You')).to.be.equal('happy_birthday_to_you');
+        });
+
+        it('should convert "HappyBirthday-to-You----" to "happy_birthday_to_you"', function() {
+            expect(nameUtil.toUnderscoredName('HappyBirthday-to-You----')).to.be.equal('happy_birthday_to_you');
+        });
+
+        it('should convert "HappyBirthday_to-You----" to "happy_birthday_to_you"', function() {
+            expect(nameUtil.toUnderscoredName('HappyBirthday_to-You----')).to.be.equal('happy_birthday_to_you');
+        });
+
+        it('should convert "HappyBirthday_to-You -" to "happy_birthday_to_you"', function() {
+            expect(nameUtil.toUnderscoredName('HappyBirthday_to-You -')).to.be.equal('happy_birthday_to_you');
+        });
+
+        it('should convert "HappyBirthday_to-You_" to "happy_birthday_to_you"', function() {
+            expect(nameUtil.toUnderscoredName('HappyBirthday_to-You_')).to.be.equal('happy_birthday_to_you');
+        });
+
+        it('should convert "HappyBirthdayToYou " to "happy_birthday_to_you"', function() {
+            expect(nameUtil.toUnderscoredName('HappyBirthdayToYou ')).to.be.equal('happy_birthday_to_you');
+        });
+
+        it('should convert "happy Birthday   to You " to "happy_birthday_to_you"', function() {
+            expect(nameUtil.toUnderscoredName('happy Birthday   to You ')).to.be.equal('happy_birthday_to_you');
+        });
+
+        it('should convert "  happy birthday to you   " to "happy_birthday_to_you"', function() {
+            expect(nameUtil.toUnderscoredName('  happy birthday to you   ')).to.be.equal('happy_birthday_to_you');
+        });
+
+        it('should convert "HappyBirthdayToYou" to "happy_birthday_to_you"', function() {
+            expect(nameUtil.toUnderscoredName('HappyBirthdayToYou')).to.be.equal('happy_birthday_to_you');
+        });
+
+        it('should convert "$HappyBirthdayToYou" to "$_happy_birthday_to_you"', function() {
+            expect(nameUtil.toUnderscoredName('$HappyBirthdayToYou')).to.be.equal('$_happy_birthday_to_you');
         });
     });
 
@@ -155,6 +198,50 @@ describe('util-name', function() {
 
         it('should convert "$happyBirthdayToYou" to "$happyBirthdayToYou"', function() {
             expect(nameUtil.capitalize('$happyBirthdayToYou')).to.be.equal('$happyBirthdayToYou');
+        });
+
+    });
+
+    describe('capitalizeWords', function() {
+
+        it('should convert "happyBirthday-to-You" to "Happy Birthday To You"', function() {
+            expect(nameUtil.capitalizeWords('happyBirthday-to-You')).to.be.equal('Happy Birthday To You');
+        });
+
+        it('should convert "  happyBirthday-to-You" to "Happy Birthday To You"', function() {
+            expect(nameUtil.capitalizeWords('  happyBirthday-to-You')).to.be.equal('Happy Birthday To You');
+        });
+
+        it('should convert "HappyBirthday-to-You" to "Happy Birthday To You"', function() {
+            expect(nameUtil.capitalizeWords('HappyBirthday-to-You----')).to.be.equal('Happy Birthday To You');
+        });
+
+        it('should convert "HappyBirthdayToYou" to "Happy Birthday To You"', function() {
+            expect(nameUtil.capitalizeWords('HappyBirthdayToYou')).to.be.equal('Happy Birthday To You');
+        });
+
+        it('should convert "$happyBirthdayToYou" to "$happy Birthday To You"', function() {
+            expect(nameUtil.capitalizeWords('$happyBirthdayToYou')).to.be.equal('$happy Birthday To You');
+        });
+
+    });
+
+    describe('nextName', function() {
+
+        it('should return the next name', function() {
+            expect(nameUtil.nextName(['page1', 'page2'], 'page')).to.be.equal('page3');
+        });
+
+        it('should return the next name', function() {
+            expect(nameUtil.nextName(['page1', 'page2'], 'other')).to.be.equal('other1');
+        });
+
+        it('should return the next name', function() {
+            expect(nameUtil.nextName([], 'page')).to.be.equal('page1');
+        });
+
+        it('should return the next name', function() {
+            expect(nameUtil.nextName(['Page1Component', 'Page2Component'], 'Page')).to.be.equal('Page3');
         });
 
     });

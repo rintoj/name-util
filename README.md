@@ -11,34 +11,51 @@ npm install name-util --save
 ## Usage
 
 ```js
-var nameUtil = require('name-util');
+var nameUtil = require('name-util')
 
-nameUtil.toDashedName('backgroundColor'); // returns 'background-color'
+nameUtil.toDashedName('backgroundColor') // returns 'background-color'
 ```
 
 ## API
 
 ### toDashedName()
+
 ```js
-nameUtil.toDashedName('backgroundColor'); // returns 'background-color'
+nameUtil.toDashedName('backgroundColor') // returns 'background-color'
+```
+
+### toUnderscoredName()
+
+```js
+nameUtil.toUnderscoredName('backgroundColor') // returns 'background_color'
 ```
 
 ### toCamelCase()
+
 ```js
-nameUtil.toCamelCase('background-color'); // returns 'backgroundColor'
+nameUtil.toCamelCase('background-color') // returns 'backgroundColor'
 ```
 
 ### toClassName()
+
 ```js
-nameUtil.toClassName('background-color'); // returns 'BackgroundColor'
+nameUtil.toClassName('background-color') // returns 'BackgroundColor'
 ```
 
 ### capitalize()
+
 ```js
-nameUtil.capitalize('background-color'); // returns 'Background-color'
+nameUtil.capitalize('background-color') // returns 'Background-color'
+```
+
+### capitalizeWords()
+
+```js
+nameUtil.capitalizeWords('background-color') // returns 'Background Color'
 ```
 
 ## Test
+
 ```
 npm test
 ```
@@ -52,16 +69,18 @@ Contributions are very welcome! Just send a pull request. Feel free to contact m
 **Rinto Jose** (rintoj)
 
 Follow me:
-  [GitHub](https://github.com/rintoj)
+[GitHub](https://github.com/rintoj)
 | [Facebook](https://www.facebook.com/rinto.jose)
 | [Twitter](https://twitter.com/rintoj)
 | [Google+](https://plus.google.com/+RintoJoseMankudy)
 | [Youtube](https://youtube.com/+RintoJoseMankudy)
 
 ## Versions
+
 [Check CHANGELOG](https://github.com/rintoj/name-util/blob/master/CHANGELOG.md)
 
 ## License
+
 ```
 The MIT License (MIT)
 
@@ -85,3 +104,4 @@ LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 THE SOFTWARE.
 ``
+```
