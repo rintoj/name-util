@@ -1,9 +1,10 @@
 export function toDashedName(key: string): string {
-  return (key.match(/[A-Z]/g) || [])
+  const matches: string[] = key.match(/[A-Z]/g) ?? []
+  return matches
     .reduce(
       (accumulator, letter) =>
         accumulator.replace(new RegExp(letter, 'g'), `-${letter.toLowerCase()}`),
-      key
+      key,
     )
     .replace(/(-|_|\s)+/g, '-')
     .replace(/-+/g, '-')
@@ -12,11 +13,12 @@ export function toDashedName(key: string): string {
 }
 
 export function toUnderscoredName(key: string): string {
-  return (key.match(/[A-Z]/g) || [])
+  const matches: string[] = key.match(/[A-Z]/g) || []
+  return matches
     .reduce(
       (accumulator, letter) =>
         accumulator.replace(new RegExp(letter, 'g'), `-${letter.toLowerCase()}`),
-      key
+      key,
     )
     .replace(/(-|_|\s)+/g, '_')
     .replace(/_+/g, '_')
@@ -25,13 +27,14 @@ export function toUnderscoredName(key: string): string {
 }
 
 export function toCamelCase(key: string): string {
-  let name = (key.match(/(-|_|\s+)[a-zA-Z]/g) || [])
+  const matches: string[] = key.match(/(-|_|\s+)[a-zA-Z0-9]/g) || []
+  const name = matches
     .reduce(
       (accumulator, letter) =>
         accumulator.replace(new RegExp(letter, 'g'), letter.replace(/-|_|\s+/g, '').toUpperCase()),
-      key
+      key.replace(/^[0-9]+/g, ''),
     )
-    .replace(/(-|_|\s)+/g, '-')
+    .replace(/(-|_|\s)+/g, '')
     .replace(/^(-|_)+|(-|_)+$/g, '')
     .trim()
   return `${name.substr(0, 1).toLowerCase()}${name.substr(1)}`
