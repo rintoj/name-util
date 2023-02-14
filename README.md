@@ -1,83 +1,114 @@
 # name-util
 
+[![semantic-release](https://img.shields.io/badge/%20%20%F0%9F%93%A6%F0%9F%9A%80-semantic--release-e10079.svg)](https://github.com/semantic-release/semantic-release)
+
 A utility script to convert a string into camel case, dashed name, class name or to capitalized name
 
 ## Install
 
-```
+```sh
 npm install name-util --save
+```
+
+or
+
+```sh
+yarn add name-util
 ```
 
 ## Usage
 
-```js
-var nameUtil = require('name-util')
+```ts
+import { toDashedName } from 'name-util'
 
-nameUtil.toDashedName('backgroundColor') // returns 'background-color'
+toDashedName('backgroundColor') // returns 'background-color'
 ```
 
 ## API
 
 ### toDashedName()
 
-```js
-nameUtil.toDashedName('backgroundColor') // returns 'background-color'
+```ts
+import { toDashedName } from 'name-util'
+
+toDashedName('backgroundColor') // returns 'background-color'
 ```
 
 ### toUnderscoredName()
 
-```js
-nameUtil.toUnderscoredName('backgroundColor') // returns 'background_color'
+```ts
+import { toUnderscoredName } from 'name-util'
+
+toUnderscoredName('backgroundColor') // returns 'background_color'
 ```
 
 ### toCamelCase()
 
-```js
-nameUtil.toCamelCase('background-color') // returns 'backgroundColor'
+```ts
+import { toCamelCase } from 'name-util'
+
+toCamelCase('background-color') // returns 'backgroundColor'
 ```
 
 ### toClassName()
 
-```js
-nameUtil.toClassName('background-color') // returns 'BackgroundColor'
+```ts
+import { toClassName } from 'name-util'
+
+toClassName('background-color') // returns 'BackgroundColor'
 ```
 
 ### capitalize()
 
-```js
-nameUtil.capitalize('background-color') // returns 'Background-color'
+```ts
+import { capitalize } from 'name-util'
+
+capitalize('background-color') // returns 'Background-color'
 ```
 
 ### capitalizeWords()
 
-```js
-nameUtil.capitalizeWords('background-color') // returns 'Background Color'
+```ts
+import { capitalizeWords } from 'name-util'
+
+capitalizeWords('background-color') // returns 'Background Color'
 ```
 
 ## Test
 
-```
+```sh
 npm test
 ```
 
 ## Contributing
 
-Contributions are very welcome! Just send a pull request. Feel free to contact me or checkout my [GitHub](https://github.com/rintoj) page.
+Contributions are very welcome! Just send a pull request. Feel free to contact me or checkout my
+[GitHub](https://github.com/rintoj) page.
 
 ## Author
 
 **Rinto Jose** (rintoj)
 
-Follow me:
-[GitHub](https://github.com/rintoj)
-| [Facebook](https://www.facebook.com/rinto.jose)
-| [Twitter](https://twitter.com/rintoj)
-| [Google+](https://plus.google.com/+RintoJoseMankudy)
-| [Youtube](https://youtube.com/+RintoJoseMankudy)
+Follow me: [GitHub](https://github.com/rintoj) | [Facebook](https://www.facebook.com/rinto.jose) |
+[Twitter](https://twitter.com/rintoj) | [Google+](https://plus.google.com/+RintoJoseMankudy) |
+[Youtube](https://youtube.com/+RintoJoseMankudy)
 
 ## Versions
 
 [Check CHANGELOG](https://github.com/rintoj/name-util/blob/master/CHANGELOG.md)
+
+## Automatic Release
+
+Here is an example of the release type that will be done based on a commit messages:
+
+| Commit message      | Release type          |
+| ------------------- | --------------------- |
+| fix: [comment]      | Patch Release         |
+| feat: [comment]     | Minor Feature Release |
+| perf: [comment]     | Major Feature Release |
+| doc: [comment]      | No Release            |
+| refactor: [comment] | No Release            |
+| chore: [comment]    | No Release            |
 
 ## License
 

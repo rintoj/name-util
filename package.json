@@ -5,7 +5,7 @@
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
   "scripts": {
-    "test": "jest src",
+    "test": "jest",
     "build": "yarn run lint && rimraf dist && tsc",
     "lint": "eslint src/**/*.ts --fix && tsc -p . --noEmit && yarn prettier",
     "prettier": "prettier --write \"src/**/*.{ts,tsx}\" -c",
@@ -47,7 +47,8 @@
   "jest": {
     "testPathIgnorePatterns": [
       "/node_modules/",
-      "/build/"
+      "/build/",
+      "/dist"
     ],
     "testEnvironment": "node",
     "collectCoverage": false,
