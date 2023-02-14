@@ -5,8 +5,8 @@
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
   "scripts": {
-    "test": "jest",
-    "build": "yarn run lint && rimraf lib && tsc",
+    "test": "jest src",
+    "build": "yarn run lint && rimraf dist && tsc",
     "lint": "eslint src/**/*.ts --fix && tsc -p . --noEmit && yarn prettier",
     "prettier": "prettier --write \"src/**/*.{ts,tsx}\" -c",
     "semantic-release": "semantic-release"
